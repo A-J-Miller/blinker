@@ -19,4 +19,6 @@
 /* Zero Kelvin in degree C */
 #define ABSOLUTE_ZERO                       (float)(-273.15)
 
+#define LIGHT_IN P10_4
+
 #endif //constants.h

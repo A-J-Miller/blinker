@@ -1,5 +1,5 @@
-#ifndef tempsense_h
-#define tempsense_h
+#ifndef tempsense
+#define tempsense
 
 float realTemp();
 
