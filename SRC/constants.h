@@ -7,6 +7,9 @@
 #define THERM_VDD         P10_3
 #define THERM_GND         P10_0
 
+#define GREEN_LED         P0_5
+#define PUSH_BUTTON       P0_4
+
 /* Reference resistor in series with the thermistor is of 10kohm */
 #define R_REFERENCE                         (float)(10000)
 /* A constant of NCP18XH103F03RB thermistor is */
