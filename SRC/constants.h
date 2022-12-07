@@ -24,4 +24,10 @@
 
 #define LIGHT_IN P10_4
 
+struct things_t {
+    float tempC;
+    float light;
+    bool buttonState;
+};
+
 #endif //constants.h

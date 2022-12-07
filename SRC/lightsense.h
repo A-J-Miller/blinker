@@ -1,6 +1,6 @@
 #ifndef lightsense
 #define lightsense
 
-float realLight();
+void realLight();
 
 #endif // lightsense.h

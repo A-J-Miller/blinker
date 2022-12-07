@@ -1,6 +1,6 @@
 #ifndef tempsense
 #define tempsense
 
-float realTemp();
+void realTemp();
 
 #endif // tempsense.h

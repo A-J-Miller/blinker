@@ -1,6 +1,6 @@
 #ifndef button
 #define button
 
-bool readButtonState();
+void readButtonState();
 
 #endif // button.h

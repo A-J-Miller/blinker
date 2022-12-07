@@ -1,18 +1,19 @@
-/* 
-This code is designed to read the voltage of the on-board thermistor and convert the reading into degrees C. 
-The output is then displayed via console
+/*
+This code is designed to read the voltage of the on-board thermistor and convert
+the reading into degrees C. The output is then displayed via console
 */
 
-#include "mbed.h"
-#include "constants.h"
 #include "lightsense.h"
+#include "constants.h"
 #include "iostream"
-
+#include "mbed.h"
 
 AnalogIn lightsenseVoltage(LIGHT_IN);
+extern things_t myData;
 
-float realLight() {
-    float lightLevel = lightsenseVoltage.read() * 100;
-
-return lightLevel;
+void realLight() {
+  while (true) {
+    myData.light = lightsenseVoltage.read() * 100;
+    ThisThread::sleep_for(500ms);
+  }
 }
