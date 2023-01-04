@@ -35,6 +35,16 @@ void realTemp() {
     float temperatureC = (float32_t)(((1.0 / stEqn) + ABSOLUTE_ZERO) + 0.05);
 
     myData.tempC = temperatureC;
+
+    if (temperatureC > myData.tempCMax) {
+        myData.tempCMax = temperatureC;
+    }
+
+    if (temperatureC < myData.tempCMin) {
+        myData.tempCMin = temperatureC;
+    }
+
+
     ThisThread::sleep_for(500ms);
   }
   //    return temperatureC;

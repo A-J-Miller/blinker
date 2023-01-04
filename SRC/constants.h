@@ -26,6 +26,8 @@
 
 struct things_t {
     float tempC;
+    float tempCMax;
+    float tempCMin = 1000;
     float light;
     bool buttonState;
 };
