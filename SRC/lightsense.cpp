@@ -14,6 +14,13 @@ extern things_t myData;
 void realLight() {
   while (true) {
     myData.light = lightsenseVoltage.read() * 100;
+    
+    if (myData.light > myData.setLight+2.0){
+        myData.lightState = false; //Change lightState to false if light level + 2% is exceeded
+    }
+    else if (myData.light < myData.setLight-2.0){
+        myData.lightState = true; //Change lightState to true if light level - 2% is exceeded
+    }
     ThisThread::sleep_for(500ms);
   }
 }

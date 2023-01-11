@@ -28,7 +28,13 @@ struct things_t {
     float tempC;
     float tempCMax;
     float tempCMin = 1000;
+    float setTemp = 26.0;
+    bool heaterState;
+
     float light;
+    float setLight = 50.0;
+    bool lightState;
+
     bool buttonState;
 };
 
