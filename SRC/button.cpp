@@ -17,6 +17,6 @@ void readButtonState() {
       myData.buttonState = !myData.buttonState;
       pressed = false;
     }
-    ThisThread::sleep_for(500ms);
+    ThisThread::sleep_for(500);
   }
 }

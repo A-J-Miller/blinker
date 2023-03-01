@@ -21,6 +21,6 @@ void realLight() {
     else if (myData.light < myData.setLight-2.0){
         myData.lightState = true; //Change lightState to true if light level - 2% is exceeded
     }
-    ThisThread::sleep_for(500ms);
+    ThisThread::sleep_for(500);
   }
 }

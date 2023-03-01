@@ -3,13 +3,15 @@
 #include "mbed.h"
 #include "stdio.h"
 #include "vt100.h"
+#include <iomanip>
 
 extern things_t myData;
 DigitalOut green(GREEN_LED);
 
 void displayTask() {
+  cout << setprecision(1) << fixed;
   cout << "\033\x63";           // Clears the console
-  ThisThread::sleep_for(500ms); // Sleep to allow console time to clear
+  ThisThread::sleep_for(500); // Sleep to allow console time to clear
   cout << "\033[?25l";          // Hides the cursor
 
   while (true) {
@@ -47,7 +49,7 @@ void displayTask() {
          << "Temperature Reading is: " << myData.tempCMax << "*c     " << endl;
     cout << "Current Light Level is: " << myData.light << "       "
          << endl; // Note the spaces added to clear artifacts
-if (myData.lightState == true) {
+    if (myData.lightState == true) {
       cout << "Light Status: "
            << "\033[42m"
            << "  "
@@ -58,6 +60,6 @@ if (myData.lightState == true) {
            << "  "
            << "\033[40m" << endl;
     }
-    ThisThread::sleep_for(500ms);
+    ThisThread::sleep_for(500);
   }
 }

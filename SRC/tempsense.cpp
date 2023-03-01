@@ -9,8 +9,6 @@ the reading into degrees C. The output is then displayed via console
 #include "mbed.h"
 
 // Therm Variables - reads therm voltage
-DigitalOut vdd(THERM_VDD);
-DigitalOut gnd(THERM_GND);
 AnalogIn tempVoltage(THERM_OUT);
 extern things_t myData;
 
@@ -52,7 +50,7 @@ void realTemp() {
     }
 
 
-    ThisThread::sleep_for(500ms);
+    ThisThread::sleep_for(500);
   }
   //    return temperatureC;
 }

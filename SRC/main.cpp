@@ -6,6 +6,7 @@
 #include "stdio.h"
 #include "tempsense.h"
 #include "display.h"
+#include "wifiTask.h"
 
 
 // Global Variables
@@ -16,9 +17,10 @@ Thread realTempHandle;
 Thread realLightSenseHandle;
 Thread buttonHandle;
 Thread displayHandle;
+Thread wifiHandle;
 
 int main() {
-
+  wifiHandle.start(callback(runWifi));
   realTempHandle.start(callback(realTemp));
   realLightSenseHandle.start(callback(realLight)); 
   buttonHandle.start(callback(readButtonState));

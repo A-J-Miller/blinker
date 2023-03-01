@@ -7,3 +7,5 @@ compile_commands.json
 .clangd
 .cache
 mbed-os
+wifi-ism43362
+mbed-mqtt
