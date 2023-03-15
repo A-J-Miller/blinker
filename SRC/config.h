@@ -8,8 +8,8 @@
 
 #define THING_NAME "ajm_thing"
 
-#define TEMPERATURE_TOPIC "/temperatureC"
-#define LIGHT_LEVEL_TOPIC "/lightlevel"
+//#define TEMPERATURE_TOPIC "/temperatureC"
+//#define LIGHT_LEVEL_TOPIC "/lightlevel"
 #define ANNOUNCE_TOPIC "/yay"
 
 #endif

@@ -7,12 +7,14 @@ the reading into degrees C. The output is then displayed via console
 #include "constants.h"
 #include "iostream"
 #include "mbed.h"
+#include "wifiTask.h"
 
 // Therm Variables - reads therm voltage
 AnalogIn tempVoltage(THERM_OUT);
 extern things_t myData;
 
 void realTemp() {
+
   // vdd = true;
   // gnd = false; //Thermistor Enabled
   // vdd = false; //Thermistor Disabled
@@ -34,21 +36,27 @@ void realTemp() {
 
     myData.tempC = temperatureC;
 
-    if (myData.tempC > myData.setTemp+1.0){
-        myData.heaterState = false; //Change heaterState to false if temp + 2*c is exceeded
-    }
-    else if (myData.tempC < myData.setTemp-1.0){
-        myData.heaterState = true; //Change heaterState to true if temp - 2*c is exceeded
+    if (myData.tempC > myData.setTemp + 1.0) {
+      myData.heaterState =
+          false; // Change heaterState to false if temp + 2*c is exceeded
+    } else if (myData.tempC < myData.setTemp - 1.0) {
+      myData.heaterState =
+          true; // Change heaterState to true if temp - 2*c is exceeded
     }
 
     if (temperatureC > myData.tempCMax) {
-        myData.tempCMax = temperatureC;
+      myData.tempCMax = temperatureC;
     }
 
     if (temperatureC < myData.tempCMin) {
-        myData.tempCMin = temperatureC;
+      myData.tempCMin = temperatureC;
     }
-
+    
+    int pubRate;
+    if (pubRate++ > 20) {
+      sendPub(TEMPERATURE_TOPIC, myData.tempC);
+      pubRate = 0;
+    }
 
     ThisThread::sleep_for(500);
   }
