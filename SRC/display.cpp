@@ -10,9 +10,9 @@ DigitalOut green(GREEN_LED);
 
 void displayTask() {
   cout << setprecision(1) << fixed;
-  cout << "\033\x63";           // Clears the console
+  printf("\033[2J");           // Clears the console
   ThisThread::sleep_for(500); // Sleep to allow console time to clear
-  cout << "\033[?25l";          // Hides the cursor
+  printf("\033[?25l");          // Hides the cursor
 
   while (true) {
     cout << "\033[H"; // Returns the cursor to the start of the console
@@ -47,8 +47,9 @@ void displayTask() {
          << "   High "
          << "\033[0;37m"
          << "Temperature Reading is: " << myData.tempCMax << "*c     " << endl;
-    cout << "Current Light Level is: " << myData.light << "       "
+    cout << "Current Light Level is: " << myData.light << "%      "
          << endl; // Note the spaces added to clear artifacts
+    cout << "Light Activation Level: " << myData.setLight << "%      " << endl;
     if (myData.lightState == true) {
       cout << "Light Status: "
            << "\033[42m"

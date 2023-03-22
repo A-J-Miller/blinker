@@ -6,6 +6,7 @@
 #define GREEN_LED         P0_5
 #define PUSH_BUTTON       P10_3
 #define LIGHT_IN          P10_4
+#define RXLED P12_3
 
 /* Reference resistor in series with the thermistor is of 10kohm */
 #define R_REFERENCE                         (float)(10000)
