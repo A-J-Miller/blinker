@@ -11,6 +11,7 @@
 //#define TEMPERATURE_TOPIC "/temperatureC"
 //#define LIGHT_LEVEL_TOPIC "/lightlevel"
 #define ANNOUNCE_TOPIC "/yay"
-#define LIGHT_SET_TOPIC "ajm_thing/lthresh"
+#define LIGHT_SET_TOPIC "ajm_thing/lightSet"
+#define TEMP_SET_TOPIC "ajm_thing/tempSet"
 
 #endif
