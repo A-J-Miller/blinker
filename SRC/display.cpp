@@ -10,9 +10,9 @@ DigitalOut green(GREEN_LED);
 
 void displayTask() {
   cout << setprecision(1) << fixed;
-  printf("\033[2J");           // Clears the console
+  printf("\033[2J");          // Clears the console
   ThisThread::sleep_for(500); // Sleep to allow console time to clear
-  printf("\033[?25l");          // Hides the cursor
+  printf("\033[?25l");        // Hides the cursor
 
   while (true) {
     cout << "\033[H"; // Returns the cursor to the start of the console
@@ -38,6 +38,7 @@ void displayTask() {
            << "  "
            << "\033[40m" << endl;
     }
+    cout << "Heater Active at: " << myData.setTemp << "*c     " << endl;
 
     cout << "\033[0;34m"
          << "   Low "
