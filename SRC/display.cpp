@@ -7,6 +7,7 @@
 
 extern things_t myData;
 DigitalOut green(GREEN_LED);
+DigitalOut yellow(YELLOW_LED);
 
 void displayTask() {
   cout << setprecision(1) << fixed;
@@ -32,11 +33,13 @@ void displayTask() {
            << "\033[42m"
            << "  "
            << "\033[40m" << endl;
+           yellow = true;
     } else {
       cout << "Heater Status: "
            << "\033[41m"
            << "  "
            << "\033[40m" << endl;
+           yellow = false;
     }
     cout << "Heater Active at: " << myData.setTemp << "*c     " << endl;
 

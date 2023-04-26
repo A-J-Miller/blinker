@@ -4,6 +4,7 @@
 #define BLINKING_RATE     2000
 #define THERM_OUT         P10_1
 #define GREEN_LED         P0_5
+#define YELLOW_LED P10_5
 #define PUSH_BUTTON       P10_3
 #define LIGHT_IN          P10_4
 #define RXLED P12_3
