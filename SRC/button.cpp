@@ -6,7 +6,7 @@
 DigitalIn userButton(PUSH_BUTTON);
 extern things_t myData;
 
-void readButtonState() {
+/*void readButtonState() {
   bool lastButtonState = userButton;
   bool pressed = false;
   while (true) {
@@ -18,5 +18,12 @@ void readButtonState() {
       pressed = false;
     }
     ThisThread::sleep_for(500);
+  }
+}*/
+
+void readButtonState() {
+  while (true) {
+    myData.buttonState = userButton;
+    ThisThread::sleep_for(50);
   }
 }
