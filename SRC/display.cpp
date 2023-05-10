@@ -18,16 +18,17 @@ void displayTask() {
   while (true) {
     cout << "\033[H"; // Returns the cursor to the start of the console
     if (myData.buttonState == true) {
-      cout << "The button is "
+      cout << "The door is: "
            << "\033[0;32m"
-           << "pressed    "
+           << "OPEN    "
            << "\033[0;37m" << endl;
       green = true;
     } else {
-      cout << "The button is not pressed" << endl;
+      cout << "The door is: closed" << endl;
       green = false;
     }
     cout << "Current Temperature is: " << myData.tempC << "*c     " << endl;
+    
     if (myData.heaterState == true) {
       cout << "Heater Status: "
            << "\033[42m"

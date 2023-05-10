@@ -1,13 +1,14 @@
 #ifndef constants_h
 #define constants_h
 
-#define BLINKING_RATE     2000
-#define THERM_OUT         P10_1
-#define GREEN_LED         P0_5
-#define YELLOW_LED P10_5
-#define PUSH_BUTTON       P10_3
-#define LIGHT_IN          P10_4
-#define RXLED P12_3
+#define BLINKING_RATE       2000
+#define THERM_OUT           P10_1
+#define GREEN_LED           P0_5
+#define YELLOW_LED          P10_5
+#define RED_LED             P10_2
+#define PUSH_BUTTON         P10_3
+#define LIGHT_IN            P10_4
+#define RXLED               P12_3
 
 /* Reference resistor in series with the thermistor is of 10kohm */
 #define R_REFERENCE                         (float)(10000)
@@ -27,6 +28,7 @@ struct things_t {
     float tempCMin = 1000;
     float setTemp = 26.0;
     bool heaterState;
+    bool heaterOverride;
 
     float light;
     float setLight = 50.0;

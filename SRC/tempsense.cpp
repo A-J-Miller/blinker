@@ -37,11 +37,9 @@ void realTemp() {
     myData.tempC = temperatureC;
 
     if (myData.tempC > myData.setTemp + 1.0) {
-      myData.heaterState =
-          false; // Change heaterState to false if temp + 2*c is exceeded
+      myData.heaterState = true; // Change heaterState to false if temp + 2*c is exceeded
     } else if (myData.tempC < myData.setTemp - 1.0) {
-      myData.heaterState =
-          true; // Change heaterState to true if temp - 2*c is exceeded
+      myData.heaterState = false; // Change heaterState to true if temp - 2*c is exceeded
     }
 
     if (temperatureC > myData.tempCMax) {
