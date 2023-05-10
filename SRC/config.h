@@ -13,5 +13,6 @@
 #define ANNOUNCE_TOPIC "/yay"
 #define LIGHT_SET_TOPIC "ajm_thing/lightSet"
 #define TEMP_SET_TOPIC "ajm_thing/tempSet"
+#define TEMP_OR_TOPIC "ajm_thing/tempOR"
 
 #endif

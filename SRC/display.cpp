@@ -8,6 +8,7 @@
 extern things_t myData;
 DigitalOut green(GREEN_LED);
 DigitalOut yellow(YELLOW_LED);
+DigitalOut red(RED_LED);
 
 void displayTask() {
   cout << setprecision(1) << fixed;
@@ -28,19 +29,31 @@ void displayTask() {
       green = false;
     }
     cout << "Current Temperature is: " << myData.tempC << "*c     " << endl;
-    
-    if (myData.heaterState == true) {
+
+    if (myData.tempOR == true) {
       cout << "Heater Status: "
-           << "\033[42m"
-           << "  "
-           << "\033[40m" << endl;
-           yellow = true;
+           << "\033[1;33m"
+           << "OVERRIDE ON"
+           << "\033[0;37m" 
+           << endl;
+      red = true;
     } else {
-      cout << "Heater Status: "
-           << "\033[41m"
-           << "  "
-           << "\033[40m" << endl;
-           yellow = false;
+        red = false;
+      if (myData.heaterState == true) {
+        cout << "Heater Status: "
+             << "\033[42m"
+             << "  "
+             << "\033[40m"
+             << "                 " << endl;
+        yellow = true;
+      } else {
+        cout << "Heater Status: "
+             << "\033[41m"
+             << "  "
+             << "\033[40m"
+             << "                 " << endl;
+        yellow = false;
+      }
     }
     cout << "Heater Active at: " << myData.setTemp << "*c     " << endl;
 

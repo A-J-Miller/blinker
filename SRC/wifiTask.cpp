@@ -52,7 +52,7 @@ static MemoryPool<pubPacket_t, 32> mpool1;
 static Queue<pubPacket_t, 32> pqueue;
 const char topicMap[NUM_TOPICS][TOPIC_LEN] = {
       "light",   "lightState", "lightSwitch", "redled", "greenled",
-      "blueled", "announce",   "lightSet",     "latitude",  "longitude",
+      "blueled", "announce",   "lightSet",     "latitude",  "tempOR",
       "temperature", "tempSet", "rxCount", "txCount", "time", "statusled",
       "orangeled", "heaterState", "heaterSwitch", "humidity"};
 extern things_t myData;
@@ -196,6 +196,15 @@ public:
             sprintf(buffer, "Subscribed to %s", TEMP_SET_TOPIC);
         printf("%s", buffer);
 #endif
+       rc = client.subscribe(TEMP_OR_TOPIC, MQTT::QOS0,
+                              messageSetORArrived);
+#ifdef DEBUG
+        if (rc != 0)
+            sprintf(buffer, "Subscription Error %d", rc);
+        else
+            sprintf(buffer, "Subscribed to %s", TEMP_OR_TOPIC);
+        printf("%s", buffer);
+#endif
         rxLed = 1;
 
         while (true) {
@@ -238,6 +247,17 @@ private:
 
         strncpy(&rxed[0], (char *)(&md.message.payload)[0], len);
         myData.setTemp = atof(rxed);
+        rxCount++;
+        rxLed = !rxLed;
+    }
+private:
+    static void messageSetORArrived(MQTT::MessageData &md) {
+      MQTT::Message &message = md.message;
+        uint32_t len = md.message.payloadlen;
+        char rxed[len + 1];
+
+        strncpy(&rxed[0], (char *)(&md.message.payload)[0], len);
+        myData.tempOR = (rxed[0]=='1')?true:false;
         rxCount++;
         rxLed = !rxLed;
     }
