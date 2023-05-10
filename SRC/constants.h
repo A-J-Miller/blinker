@@ -26,7 +26,7 @@ struct things_t {
     float tempC;
     float tempCMax;
     float tempCMin = 1000;
-    float setTemp = 26.0;
+    float setTemp = 14.0;
     bool heaterState;
     bool heaterOverride;
 
